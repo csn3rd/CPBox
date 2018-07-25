@@ -10,60 +10,60 @@ A user opens the app and sees the whole database. The user can select topics or 
 # Technical
 ## Models
 ```
-* API Documentation / Language Tool:
-  * language : String
-  * name : String
-  * description : String
-  * link : String
-  * rating : Int?
-* Article:
-  * name : String
-  * author : String
-  * description : String
-  * link : String
-* Book:
-  * name : String
-  * author : String
-  * description : String
-  * link : String
-  * rating : Int
-* Blog:
-  * name : String
-  * author : String
-  * link : String
-* Calendar:
-  * name : String
-  * description : String
-  * link : String
-  * rating : Int
-* Course:
-  * name : String
-  * description : String
-  * link : String
-  * rating : Int
-* Community:
-  * name : String
-  * description : String?
-  * link : String
-* Notebook:
-  * name : String
-  * description : String
-  * link : String
-  * rating : Int
-* Tutorial:
-  * name : String
-  * description : String
-  * link : String
-  * rating : Int
-* Video:
-  * channelName : String
-  * link : String
-  * description : String?
-* Websites:
-  * name : String
-  * description : String
-  * link : String
-  * rating : Int
+⋅⋅* API Documentation / Language Tool:
+  ⋅⋅* language : String
+  ⋅⋅* name : String
+  ⋅⋅* description : String
+  ⋅⋅* link : String
+  ⋅⋅* rating : Int?
+⋅⋅* Article:
+  ⋅⋅* name : String
+  ⋅⋅* author : String
+  ⋅⋅* description : String
+  ⋅⋅* link : String
+⋅⋅* Book:
+  ⋅⋅* name : String
+  ⋅⋅* author : String
+  ⋅⋅* description : String
+  ⋅⋅* link : String
+  ⋅⋅* rating : Int
+⋅⋅* Blog:
+  ⋅⋅* name : String
+  ⋅⋅* author : String
+  ⋅⋅* link : String
+⋅⋅* Calendar:
+  ⋅⋅* name : String
+  ⋅⋅* description : String
+  ⋅⋅* link : String
+  ⋅⋅* rating : Int
+⋅⋅* Course:
+  ⋅⋅* name : String
+  ⋅⋅* description : String
+  ⋅⋅* link : String
+  ⋅⋅* rating : Int
+⋅⋅* Community:
+  ⋅⋅* name : String
+  ⋅⋅* description : String?
+  ⋅⋅* link : String
+⋅⋅* Notebook:
+  ⋅⋅* name : String
+  ⋅⋅* description : String
+  ⋅⋅* link : String
+  ⋅⋅* rating : Int
+⋅⋅* Tutorial:
+  ⋅⋅* name : String
+  ⋅⋅* description : String
+  ⋅⋅* link : String
+  ⋅⋅* rating : Int
+⋅⋅* Video:
+  ⋅⋅* channelName : String
+  ⋅⋅* link : String
+  ⋅⋅* description : String?
+⋅⋅* Websites:
+  ⋅⋅* name : String
+  ⋅⋅* description : String
+  ⋅⋅* link : String
+  ⋅⋅* rating : Int
 ```
 ## Views
 [What custom views do we need to create? Include pictures of your prototypes/sketches!]
