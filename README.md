@@ -64,8 +64,7 @@ A user opens the app and sees the whole database. The user can select topics or 
   * description : String
   * link : String
   * rating : Int
-```
-​
+```​
 ## Views
 [What custom views do we need to create? Include pictures of your prototypes/sketches!]
 ​
