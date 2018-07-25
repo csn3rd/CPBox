@@ -15,6 +15,7 @@ A user opens the app and sees the whole database. The user can select topics or 
   - name : String
   - description : String
   - link : String
+  - platform : String?
   - rating : Int?
 - Article:
   - name : String
@@ -59,39 +60,31 @@ A user opens the app and sees the whole database. The user can select topics or 
   - channelName : String
   - link : String
   - description : String?
-- Websites:
+- Website:
   - name : String
   - description : String
   - link : String
   - rating : Int
 ```
 ## Views
-[What custom views do we need to create? Include pictures of your prototypes/sketches!]
+- `CollectionViewCell` for each model. Subclass of `UICollectionViewCell` to display models.
+- `TableViewCell` for each model. Subclasses of `UITableViewCell` to display resources.
 ​
 ## Controllers
-[What controllers will we need? What will they do?]
-​
-## Other
-[Any other frameworks / things we will need? Helpers? Services?]
+- `CollectionViewController` holds the collection view cells of models.
+- `TableViewController` holds the table view cells of resources.
 ​
 # Weekly Milestone
 ## Week 4 - Usable Build
-[List of tasks needed to be complete before you can start user testing]
-- task 1
-- task 2
-- task 3
-- [...]
+- Setup Storyboard
+  - Layout UICollectionViewCell
+  - Layout UITableViewCell
 ​
 ## Week 5 - Finish Features
-[List of tasks to complete the implementation of features]
-- task 1
-- task 2
-- task 3
-- [...]
+- implement models
 ​
 ## Week 6 - Polish
-[List of tasks needed to polish and ship to the app store]
-- task 1
-- task 2
-- task 3
-- [...]
+- Finalize layout and design
+- Push to App Store
+- App descriptions
+- Screenshots and Videos
