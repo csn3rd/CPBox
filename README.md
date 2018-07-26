@@ -80,11 +80,34 @@ A user opens the app and sees the whole database. The user can select topics or 
   - Layout UICollectionViewCell
   - Layout UITableViewCell
 ​
+  Monday: Start Design Doc
+  Tuesday: Finish Design Doc
+  Wednesday: Build the storyboards and link them
+  Thursday: Build the `CollectionView`
+  Friday: Build the `TableView`
+  Weekend: Figure out how to parse information
+​
 ## Week 5 - Finish Features
 - implement models
+​
+  Monday: Build API Documentation and Language Tool model
+  Tuesday: Build Article model
+  Wednesday: Parse the information
+  Thursday: Work on displaying models
+  Friday: Work on displaying models
+  Weekend: Clean up work
 ​
 ## Week 6 - Polish
 - Finalize layout and design
 - Push to App Store
 - App descriptions
 - Screenshots and Videos
+​
+  Monday: Clean up layout and design
+  Tuesday: Clean up layout and design
+  Wednesday: App descriptions and take screenshots and videos
+  Thursday: Push to App store
+  Friday: Demo
+  Weekend: Demo
+  
+Checked by Yves
