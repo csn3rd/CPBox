@@ -12,5 +12,4 @@ struct API {
     var id : Int
     var language : String
     var link : String
-    var bookmarked = false
 }

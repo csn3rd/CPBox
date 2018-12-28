@@ -13,57 +13,59 @@ class InnerTableViewController: UITableViewController {
     static let imageone = UIImage(named: "bookmark")?.resizeImage(targetSize: CGSize(width: 60, height: 57.64))
     static let imagetwo = UIImage(named: "notbookmark")?.resizeImage(targetSize: CGSize(width: 60, height: 57.52))
     static var lastSelected : Int = 0
+    let defaults = UserDefaults.standard
+
     static var documentation = [
-        API(id: 1, language: "Java", link: "https://docs.oracle.com/javase/8/docs/api/", bookmarked: true),
-        API(id: 2, language: "C", link: "https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.pdf", bookmarked: true),
-        API(id: 3, language: "C++", link: "https://gcc.gnu.org/onlinedocs/libstdc++/api.html", bookmarked: false),
-        API(id: 4, language: "Python", link: "https://docs.python.org/3/", bookmarked: false),
-        API(id: 5, language: "Visual Basic .NET", link: "https://docs.microsoft.com/en-us/dotnet/visual-basic/", bookmarked: false),
-        API(id: 6, language: "C#", link: "https://docs.microsoft.com/en-us/dotnet/csharp/", bookmarked: false),
-        API(id: 7, language: "PHP", link: "http://php.net/manual/en/", bookmarked: false),
-        API(id: 8, language: "JavaScript", link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference", bookmarked: false),
-        API(id: 9, language: "MySQL", link: "https://dev.mysql.com/doc/", bookmarked: false),
-        API(id: 10, language: "Assembly Language", link: "https://docs.oracle.com/cd/E19253-01/817-5477/817-5477.pdf", bookmarked: false),
-        API(id: 11, language: "Swift", link: "https://developer.apple.com/documentation/swift", bookmarked: false),
-        API(id: 12, language: "Object Pascal", link: "http://docs.embarcadero.com/products/rad_studio/cbuilder6/EN/CB6_ObjPascalLangGuide_EN.pdf", bookmarked: false),
-        API(id: 13, language: "MATLAB", link: "https://www.mathworks.com/help/matlab/", bookmarked: false),
-        API(id: 14, language: "Objective-C", link: "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011210-CH1-SW1", bookmarked: false),
-        API(id: 15, language: "Ruby", link: "http://ruby-doc.org/stdlib-2.5.1/", bookmarked: false),
-        API(id: 16, language: "Perl", link: "http://perldoc.perl.org/perl.html", bookmarked: false),
-        API(id: 17, language: "Go", link: "https://golang.org/doc/", bookmarked: false),
-        API(id: 18, language: "R", link: "https://cran.r-project.org/manuals.html", bookmarked: false),
-        API(id: 19, language: "Virtual Basic", link: "https://cran.r-project.org/manuals.html", bookmarked: false),
-        API(id: 20, language: "PL/SQL", link: "https://docs.oracle.com/cd/B10501_01/appdev.920/a96624/toc.htm", bookmarked: false),
-        API(id: 21, language: "SAS", link: "http://support.sas.com/documentation/index.html", bookmarked: false),
-        API(id: 22, language: "D", link: "https://dlang.org/documentation.html", bookmarked: false),
-        API(id: 23, language: "Dart", link: "https://api.dartlang.org/stable/2.0.0/index.html", bookmarked: false),
-        API(id: 24, language: "F#", link: "https://docs.microsoft.com/en-us/dotnet/fsharp/", bookmarked: false),
-        API(id: 25, language: "ABAP", link: "https://help.sap.com/saphelp_nw73ehp1/helpdata/en/43/41341147041806e10000000a1553f6/frameset.htm", bookmarked: false),
-        API(id: 26, language: "Scala", link: "https://docs.scala-lang.org/api/all.html", bookmarked: false),
-        API(id: 27, language: "COBOL", link: "https://www.ibm.com/support/knowledgecenter/en/SS6SG3_6.2.0/welcome.html", bookmarked: false),
-        API(id: 28, language: "Fortran", link: "http://www.fortran90.org/", bookmarked: false),
-        API(id: 29, language: "Lua", link: "https://www.lua.org/manual/5.3/", bookmarked: false),
-        API(id: 30, language: "Transact-SQL", link: "https://docs.microsoft.com/en-us/sql/t-sql/language-reference?view=sql-server-2017", bookmarked: false),
-        API(id: 31, language: "Apex", link: "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dev_guide.htm", bookmarked: false),
-        API(id: 32, language: "LabVIEW", link: "http://zone.ni.com/reference/en-XX/help/371361R-01/lvconcepts/labview_documentation_resources/", bookmarked: false),
-        API(id: 33, language: "Common Lisp", link: "https://www.gnu.org/software/clisp/resources.html", bookmarked: false),
-        API(id: 34, language: "Ada", link: "http://www.adaic.org/resources/add_content/standards/05rm/RM-Final.pdf", bookmarked: false),
-        API(id: 35, language: "Rust", link: "https://doc.rust-lang.org/std/", bookmarked: false),
-        API(id: 36, language: "Ladder Logic", link: "https://www.idec.com/language/english/manual/FT1A-Ladder-Programming.pdf", bookmarked: false),
-        API(id: 37, language: "Racket", link: "https://docs.racket-lang.org/", bookmarked: false),
-        API(id: 38, language: "Prolog", link: "http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/prolog/doc/intro/prolog.doc", bookmarked: false),
-        API(id: 39, language: "Haskell", link: "https://www.haskell.org/documentation", bookmarked: false),
-        API(id: 40, language: "OpenCL", link: "https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/", bookmarked: false),
-        API(id: 41, language: "Scheme", link: "https://www.gnu.org/software/mit-scheme/documentation/mit-scheme-ref/", bookmarked: false),
-        API(id: 42, language: "Kotlin", link: "https://kotlinlang.org/docs/kotlin-docs.pdf", bookmarked: false),
-        API(id: 43, language: "Groovy", link: "http://groovy-lang.org/api.html", bookmarked: false),
-        API(id: 44, language: "Hack", link: "https://docs.hhvm.com/hack/", bookmarked: false),
-        API(id: 45, language: "Bash", link: "https://tiswww.case.edu/php/chet/bash/bashref.html", bookmarked: false),
-        API(id: 46, language: "Tcl", link: "https://www.tcl.tk/doc/", bookmarked: false),
-        API(id: 47, language: "Erlang", link: "https://www.erlang.org/docs", bookmarked: false),
-        API(id: 48, language: "REXX", link: "http://www.rexxla.org/rexxlang/Rexx_Programmers_Reference.pdf", bookmarked: false),
-        API(id: 49, language: "Julia", link: "https://docs.julialang.org", bookmarked: false),
-        API(id: 50, language: "Clojure", link: "https://clojure.org/api/api", bookmarked: false),
+        API(id: 1, language: "Java", link: "https://docs.oracle.com/javase/8/docs/api/"),
+        API(id: 2, language: "C", link: "https://www.gnu.org/software/gnu-c-manual/gnu-c-manual.pdf"),
+        API(id: 3, language: "C++", link: "https://gcc.gnu.org/onlinedocs/libstdc++/api.html"),
+        API(id: 4, language: "Python", link: "https://docs.python.org/3/"),
+        API(id: 5, language: "Visual Basic .NET", link: "https://docs.microsoft.com/en-us/dotnet/visual-basic/"),
+        API(id: 6, language: "C#", link: "https://docs.microsoft.com/en-us/dotnet/csharp/"),
+        API(id: 7, language: "PHP", link: "http://php.net/manual/en/"),
+        API(id: 8, language: "JavaScript", link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference"),
+        API(id: 9, language: "MySQL", link: "https://dev.mysql.com/doc/"),
+        API(id: 10, language: "Assembly Language", link: "https://docs.oracle.com/cd/E19253-01/817-5477/817-5477.pdf"),
+        API(id: 11, language: "Swift", link: "https://developer.apple.com/documentation/swift"),
+        API(id: 12, language: "Object Pascal", link: "http://docs.embarcadero.com/products/rad_studio/cbuilder6/EN/CB6_ObjPascalLangGuide_EN.pdf"),
+        API(id: 13, language: "MATLAB", link: "https://www.mathworks.com/help/matlab/"),
+        API(id: 14, language: "Objective-C", link: "https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011210-CH1-SW1"),
+        API(id: 15, language: "Ruby", link: "http://ruby-doc.org/stdlib-2.5.1/"),
+        API(id: 16, language: "Perl", link: "http://perldoc.perl.org/perl.html"),
+        API(id: 17, language: "Go", link: "https://golang.org/doc/"),
+        API(id: 18, language: "R", link: "https://cran.r-project.org/manuals.html"),
+        API(id: 19, language: "Virtual Basic", link: "https://cran.r-project.org/manuals.html"),
+        API(id: 20, language: "PL/SQL", link: "https://docs.oracle.com/cd/B10501_01/appdev.920/a96624/toc.htm"),
+        API(id: 21, language: "SAS", link: "http://support.sas.com/documentation/index.html"),
+        API(id: 22, language: "D", link: "https://dlang.org/documentation.html"),
+        API(id: 23, language: "Dart", link: "https://api.dartlang.org/stable/2.0.0/index.html"),
+        API(id: 24, language: "F#", link: "https://docs.microsoft.com/en-us/dotnet/fsharp/"),
+        API(id: 25, language: "ABAP", link: "https://help.sap.com/saphelp_nw73ehp1/helpdata/en/43/41341147041806e10000000a1553f6/frameset.htm"),
+        API(id: 26, language: "Scala", link: "https://docs.scala-lang.org/api/all.html"),
+        API(id: 27, language: "COBOL", link: "https://www.ibm.com/support/knowledgecenter/en/SS6SG3_6.2.0/welcome.html"),
+        API(id: 28, language: "Fortran", link: "http://www.fortran90.org/"),
+        API(id: 29, language: "Lua", link: "https://www.lua.org/manual/5.3/"),
+        API(id: 30, language: "Transact-SQL", link: "https://docs.microsoft.com/en-us/sql/t-sql/language-reference?view=sql-server-2017"),
+        API(id: 31, language: "Apex", link: "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dev_guide.htm"),
+        API(id: 32, language: "LabVIEW", link: "http://zone.ni.com/reference/en-XX/help/371361R-01/lvconcepts/labview_documentation_resources/"),
+        API(id: 33, language: "Common Lisp", link: "https://www.gnu.org/software/clisp/resources.html"),
+        API(id: 34, language: "Ada", link: "http://www.adaic.org/resources/add_content/standards/05rm/RM-Final.pdf"),
+        API(id: 35, language: "Rust", link: "https://doc.rust-lang.org/std/"),
+        API(id: 36, language: "Ladder Logic", link: "https://www.idec.com/language/english/manual/FT1A-Ladder-Programming.pdf"),
+        API(id: 37, language: "Racket", link: "https://docs.racket-lang.org/"),
+        API(id: 38, language: "Prolog", link: "http://www.cs.cmu.edu/afs/cs/project/ai-repository/ai/lang/prolog/doc/intro/prolog.doc"),
+        API(id: 39, language: "Haskell", link: "https://www.haskell.org/documentation"),
+        API(id: 40, language: "OpenCL", link: "https://www.khronos.org/registry/OpenCL/sdk/1.1/docs/man/xhtml/"),
+        API(id: 41, language: "Scheme", link: "https://www.gnu.org/software/mit-scheme/documentation/mit-scheme-ref/"),
+        API(id: 42, language: "Kotlin", link: "https://kotlinlang.org/docs/kotlin-docs.pdf"),
+        API(id: 43, language: "Groovy", link: "http://groovy-lang.org/api.html"),
+        API(id: 44, language: "Hack", link: "https://docs.hhvm.com/hack/"),
+        API(id: 45, language: "Bash", link: "https://tiswww.case.edu/php/chet/bash/bashref.html"),
+        API(id: 46, language: "Tcl", link: "https://www.tcl.tk/doc/"),
+        API(id: 47, language: "Erlang", link: "https://www.erlang.org/docs"),
+        API(id: 48, language: "REXX", link: "http://www.rexxla.org/rexxlang/Rexx_Programmers_Reference.pdf"),
+        API(id: 49, language: "Julia", link: "https://docs.julialang.org"),
+        API(id: 50, language: "Clojure", link: "https://clojure.org/api/api"),
     ]
 
     static var articles = [
@@ -182,7 +184,8 @@ class InnerTableViewController: UITableViewController {
             cell.layoutMargins = UIEdgeInsets.zero
             let api = InnerTableViewController.documentation[indexPath.row]
             cell.apiLabel?.text = api.language
-            if (api.bookmarked) {
+            let bookmarked = defaults.bool(forKey: ("bookmark"+String(indexPath.row + 1)))
+            if (bookmarked) {
                 cell.bookmarkButton?.setImage(InnerTableViewController.imageone, for: .normal)
             } else {
                 cell.bookmarkButton?.setImage(InnerTableViewController.imagetwo, for: .normal)
@@ -256,7 +259,7 @@ class InnerTableViewController: UITableViewController {
     
     @IBAction func buttonClicked(_ sender: UIButton) {
         let buttontag = sender.tag
-        InnerTableViewController.documentation[buttontag].bookmarked = !InnerTableViewController.documentation[buttontag].bookmarked
+        defaults.set(!defaults.bool(forKey: "bookmark"+String(buttontag+1)), forKey: "bookmark"+String(buttontag+1))
         self.tableView.reloadData()
     }
     
