@@ -10,10 +10,10 @@ import Foundation
 import UIKit
 
 class APIInnerTableViewCell : UITableViewCell {
-    
     @IBOutlet weak var apiLabel: UILabel!
-    @IBOutlet weak var bookmarkImage: UIImageView!
-
+    @IBOutlet weak var bookmarkButton: UIButton!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }

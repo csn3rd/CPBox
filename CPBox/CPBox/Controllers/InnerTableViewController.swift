@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 
 class InnerTableViewController: UITableViewController {
+    static let imageone = UIImage(named: "bookmark")?.resizeImage(targetSize: CGSize(width: 60, height: 57.64))
+    static let imagetwo = UIImage(named: "notbookmark")?.resizeImage(targetSize: CGSize(width: 60, height: 57.52))
     static var lastSelected : Int = 0
     static var documentation = [
         API(id: 1, language: "Java", link: "https://docs.oracle.com/javase/8/docs/api/", bookmarked: true),
@@ -181,11 +183,12 @@ class InnerTableViewController: UITableViewController {
             let api = InnerTableViewController.documentation[indexPath.row]
             cell.apiLabel?.text = api.language
             if (api.bookmarked) {
-                cell.bookmarkImage?.image = UIImage(named: "bookmark")?.resizeImage(targetSize: CGSize(width: 60, height: 57.64))
+                cell.bookmarkButton?.setImage(InnerTableViewController.imageone, for: .normal)
             } else {
-                cell.bookmarkImage?.image = UIImage(named: "notbookmark")?.resizeImage(targetSize: CGSize(width: 60, height: 57.52))
+                cell.bookmarkButton?.setImage(InnerTableViewController.imagetwo, for: .normal)
             }
-            cell.bookmarkImage?.contentMode = UIViewContentMode.scaleToFill
+            cell.bookmarkButton.tag = indexPath.row
+            cell.bookmarkButton?.contentMode = UIViewContentMode.scaleToFill
             return cell
         } else if ListTableViewController.lastSelected == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "articleInnerTableViewCell", for: indexPath) as! ArticleInnerTableViewCell
@@ -243,12 +246,18 @@ class InnerTableViewController: UITableViewController {
         }
         return ""
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if ListTableViewController.lastSelected == 2 {
             return 40
         }
         return 0
+    }
+    
+    @IBAction func buttonClicked(_ sender: UIButton) {
+        let buttontag = sender.tag
+        InnerTableViewController.documentation[buttontag].bookmarked = !InnerTableViewController.documentation[buttontag].bookmarked
+        self.tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

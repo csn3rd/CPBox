@@ -122,24 +122,33 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FO2-Bc-S5V">
-                                            <rect key="frame" x="240" y="5" width="60" height="63"/>
-                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VA9-S8-Cfs">
+                                            <rect key="frame" x="240" y="8" width="60" height="58"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="58" id="tj2-rb-t8I"/>
+                                            </constraints>
+                                            <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                            <connections>
+                                                <action selector="buttonClicked:" destination="snK-B3-BAS" eventType="touchUpInside" id="Yg3-3X-NB5"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
+                                    <gestureRecognizers/>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="VA9-S8-Cfs" secondAttribute="trailing" constant="20" id="4QT-pT-D64"/>
                                         <constraint firstAttribute="bottom" secondItem="kAr-Rr-Z0P" secondAttribute="bottom" constant="15.666666666666671" id="MJo-Yh-fPX"/>
+                                        <constraint firstItem="VA9-S8-Cfs" firstAttribute="leading" secondItem="kAr-Rr-Z0P" secondAttribute="trailing" constant="20" id="PAN-CS-85W"/>
                                         <constraint firstItem="kAr-Rr-Z0P" firstAttribute="top" secondItem="XEh-J3-ziy" secondAttribute="top" constant="16" id="XJs-2N-mhd"/>
-                                        <constraint firstItem="FO2-Bc-S5V" firstAttribute="left" secondItem="kAr-Rr-Z0P" secondAttribute="right" constant="20" id="Zhk-e4-8lD"/>
                                         <constraint firstItem="kAr-Rr-Z0P" firstAttribute="leading" secondItem="XEh-J3-ziy" secondAttribute="leading" constant="30" id="brQ-Va-Te4"/>
                                         <constraint firstAttribute="trailing" secondItem="kAr-Rr-Z0P" secondAttribute="trailing" constant="100" id="hxf-Iw-bHT"/>
-                                        <constraint firstAttribute="right" secondItem="FO2-Bc-S5V" secondAttribute="right" constant="20" id="mGA-a4-tf6"/>
-                                        <constraint firstAttribute="topMargin" secondItem="FO2-Bc-S5V" secondAttribute="top" id="sgJ-Pp-ExP"/>
+                                        <constraint firstItem="VA9-S8-Cfs" firstAttribute="top" secondItem="XEh-J3-ziy" secondAttribute="top" constant="8.5" id="uv9-Be-Wbb"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.84313725490196079" green="1" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="apiLabel" destination="kAr-Rr-Z0P" id="PcY-4x-KFW"/>
-                                    <outlet property="bookmarkImage" destination="FO2-Bc-S5V" id="Ppy-VY-c7b"/>
+                                    <outlet property="bookmarkButton" destination="VA9-S8-Cfs" id="buA-O0-9g7"/>
                                     <segue destination="XV9-Pt-uiK" kind="show" id="3w8-oe-TsL"/>
                                 </connections>
                             </tableViewCell>
